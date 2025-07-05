@@ -1,9 +1,13 @@
 const express = require('express');
 const { default: mongoose } = require('mongoose');
 const app = express();
-const PORT = 5000;
 const h_router = require('./router/h_list_router');
 const cors = require('cors');
+const message_route = require('./router/message');
+const attractions_router = require('./router/mobile/attraction/attractions');
+require('dotenv').config();
+
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(cors());
@@ -18,3 +22,5 @@ mongoose.connect(mongooseUrl).then(() => {
 })
 
 app.use(h_router);
+app.use(message_route);
+app.use(attractions_router);
