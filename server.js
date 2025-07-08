@@ -6,6 +6,7 @@ const cors = require('cors');
 const message_route = require('./router/message');
 const attractions_router = require('./router/mobile/attraction/attractions');
 require('dotenv').config();
+const FindJob = require('./router/mobile/find_job/find_job');
 
 const PORT = process.env.PORT;
 
@@ -24,3 +25,4 @@ mongoose.connect(mongooseUrl).then(() => {
 app.use(h_router);
 app.use(message_route);
 app.use(attractions_router);
+app.use(FindJob);
