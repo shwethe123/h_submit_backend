@@ -1,9 +1,8 @@
-// verifyClerkToken.js
+
+//middleware
+
 require('dotenv').config();
 const { ClerkExpressWithAuth } = require('@clerk/clerk-sdk-node');
 
-const requireAuth = ClerkExpressWithAuth({
-  // ✅ Don't use "audience" now, just rely on env vars
-});
-
+const requireAuth = ClerkExpressWithAuth(); // ✅ Middleware
 module.exports = requireAuth;
